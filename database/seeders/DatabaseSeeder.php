@@ -12,6 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            AkunUmumTableSeeder::class,
+            AkunMCTableSeeder::class,
+            AkunTableSeeder::class,
+            EventsTableSeeder::class,
+            AkunEoTableSeeder::class,
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

@@ -19,20 +19,20 @@
 <body style="overflow-x: hidden">
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(255, 0, 51);">
-        <img src="img/Header_EventHub_Logo.png" alt="Logo" style="height: 20px;">
+        <img src={{ asset('img/Header_EventHub_Logo.png') }} alt="Logo" style="height: 20px;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <form class="form-inline mx-auto" style="margin-top: 0.3cm; margin-bottom: 0.3cm;">
-                <input class="form-control mr-sm-2" type="search" placeholder="Find event or mc here" aria-label="Search" style="width: 15cm">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline mx-auto" action="{{ url('search-results/search') }}" method="GET" style="margin-top: 0.3cm; margin-bottom: 0.3cm;">
+                <input class="form-control mr-sm-2" type="search" placeholder="Find event or mc here" name="search" value="{{ old('search') }}" aria-label="Search" style="width: 15cm">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" value="SEARCH">Search</button>
             </form>
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" id="profileDropdown"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/Portrait.png" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+                    <img src= {{ asset('img/Portrait.png') }} alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="/landingpage">Home</a>
@@ -51,7 +51,7 @@
         <div class="">
             <div class="row">
                 <div class="col-sm-3 footer-logo">
-                    <img src="img/Footer_EventHub_Logo.png" alt="Logo" style="height: 200px;">
+                    <img src= {{ asset('img/Footer_EventHub_Logo.png') }} alt="Logo" style="height: 200px;">
                 </div>
                 <div class="col-sm-9">
                     <p style="text-align: left; padding-top: 1.3cm;">EventHubCS@gmail.com</p>

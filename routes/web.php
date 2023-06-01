@@ -35,9 +35,16 @@ Route::get('/UpcomingEvent', 'App\Http\Controllers\UpcomingEventController@upcom
 Route::get('/EditProfile', 'App\Http\Controllers\UmumController@editProfile');
 Route::post('/EditProfile/update', 'App\Http\Controllers\UmumController@update');
 
-Route::get('/Search', 'App\Http\Controllers\SearchPageController@searchpage');
+Route::get('search-results', 'App\Http\Controllers\SearchPageController@index');
+Route::get('userUmum', 'App\Http\Controllers\UserUmumController@getData');
+Route::get('search-results/search', 'App\Http\Controllers\SearchPageController@searchMCEvent');
+// Route::get('search-results/filter', 'App\Http\Controllers\FilterController@filterData');
+Route::get('/search-results/filter', [SearchPageController::class, 'searchMCEvent'])->name('SearchPage.searchMCEvent');
 
-Route::get('/landingpage', 'App\Http\Controllers\LandingPageController@landingPage');
+
+//dev
+// Route::get('/landingpage', 'App\Http\Controllers\LandingPageController@landingPage');
+Route::get('/landingpage', 'App\Http\Controllers\LandingPageController@index');
 Route::get('/landingpage/myprofile', 'App\Http\Controllers\LandingPageController@myProfile');
 Route::get('/landingpage/editprofile', 'App\Http\Controllers\LandingPageController@editProfile');
 
