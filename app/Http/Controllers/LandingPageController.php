@@ -11,14 +11,6 @@ class LandingPageController extends Controller
 		return view('LandingPage');
 	}
 
-	public function myProfile(){
-        //variabel biasa
-        $nama = "Faizal Johan";
-        //Array
-        $rating = ["1","2","3","4","5"];
-        return view('MyProfile', ['nama' => $nama, 'rating' => $rating]);
-	}
-
 	public function index()
     {
     	// mengambil data dari table pegawai

@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('akuneo', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('eoID', 30);
-            $table->string('eoName', 30);
-            $table->string('eoType', 30);
-            $table->string('eoDomicile', 30);
-            $table->string('eoContactPerson', 30);
-            $table->string('eoEventCatagory', 30);
-            $table->string('jenisAccountID', 30);
+            $table->string('eoID', 50);
+            $table->string('eoName', 50);
+            $table->string('eoType', 50);
+            $table->string('eoDomicile', 50);
+            $table->string('eoContactPerson', 50);
+            $table->string('eoEventCatagory', 50);
+            $table->string('jenisAccountID', 50);
             $table->string('eoImage', 500);
         });
     }
