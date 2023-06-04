@@ -20,7 +20,14 @@ class SearchPageController extends Controller
             while (($data = fgetcsv($handle, 1000, ',')) !== false) {
                 $parts = explode(',', $data[2]);
                 $city = end($parts);
-                $cities[] = $city;
+                // Extract the words after "KABUPATEN" or "KOTA"
+                preg_match('/(?:KABUPATEN|KOTA)\s(.+)/', $city, $matches);
+                $extractedCity = $matches[1] ?? '';
+
+                $cities[] = $extractedCity;
+
+                // Sort the cities array in ascending order
+                sort($cities);
             }
             fclose($handle);
         }
@@ -42,12 +49,32 @@ class SearchPageController extends Controller
 
     public function filter(Request $request)
     {
+        
+        $cities = [];
+        if (($handle = fopen(public_path('csv/cities.csv'), 'r')) !== false) {
+            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+                $parts = explode(',', $data[2]);
+                $city = end($parts);
+                // Extract the words after "KABUPATEN" or "KOTA"
+                preg_match('/(?:KABUPATEN|KOTA)\s(.+)/', $city, $matches);
+                $extractedCity = $matches[1] ?? '';
+
+                $cities[] = $extractedCity;
+
+                // Sort the cities array in ascending order
+                sort($cities);
+            }
+            fclose($handle);
+        }
+
     $mcFilter = 0;
     $eventFilter = 0;
+    $locationFilter = 0;
 
     $search = $request->input('search');
     $mcFilter = $request->input('MC');
     $eventFilter = $request->input('Event');
+    $locationFilter = $request->input('Location');
 
     $akunMCQuery = DB::table('akunMC')
     ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID')
@@ -63,6 +90,10 @@ class SearchPageController extends Controller
         $akunMCQuery->where('jenisAccountID', '=', "2");
     } elseif ($eventFilter == "3") {
         $akunMCQuery->where('jenisAccountID', '=', "3");
+    }
+
+    if($locationFilter != "0") {
+        $akunMCQuery->where('mcCity', '=', $locationFilter);
     }
 
     // dd($akunMCQuery->get());
@@ -83,12 +114,16 @@ class SearchPageController extends Controller
         } elseif ($eventFilter == "3") {
             $eventsQuery->where('jenisAccountID', '=', "3");
         }
+
+        if($locationFilter != "0") {
+            $eventsQuery->where('eventLocation', '=', $locationFilter);
+        }
     
     $filterResults = $akunMCQuery->union($eventsQuery);
 
     // $filteredResults = $filterResults->paginate(16);
     $filteredResults = $filterResults->paginate(16)->appends(request()->except('page'));
 
-    return view('searchPage', ['akunmc' => $filteredResults, 'akunCounter' => 0, 'searchTerm' => $search]);
+    return view('searchPage', ['akunmc' => $filteredResults, 'akunCounter' => 0, 'searchTerm' => $search, 'cities' => $cities]);
     }
 }

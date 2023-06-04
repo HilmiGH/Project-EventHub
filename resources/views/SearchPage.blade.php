@@ -37,7 +37,7 @@
                             <div style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600">
                                 Location
                             </div>
-                            <select name="location" class="custom-select">
+                            <select name="Location" class="custom-select">
                                 <option value="" selected>Select the location</option>
                                 @foreach ($cities as $city)
                                     <option value="{{ $city }}">{{ $city }}</option>
