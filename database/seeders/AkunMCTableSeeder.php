@@ -22,7 +22,7 @@ class AkunMCTableSeeder extends Seeder
                 'mcUsername' => $faker->unique()->firstName(),
                 'mcFullName' => $faker->name,
                 'mcPhone' => $faker->phoneNumber,
-                'jenisAccountID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
+                'jenisAccountID' => '2',
                 'mcDOB' => $faker->dateTimeBetween($startDate = '-30 years', $endDate = '-20 years', $timezone = null),
                 'mcLanguage' => $faker->languageCode,
                 'mcPriceMin' => $faker->numberBetween($min = 100000, $max = 500000),

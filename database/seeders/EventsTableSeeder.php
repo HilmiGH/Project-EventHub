@@ -18,6 +18,7 @@ class EventsTableSeeder extends Seeder
 
         for ($i=1; $i <= 20; $i++) { 
             DB::table('events')->insert([
+                'jenisAccountID' => '3',
                 'eventID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
                 'eoID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
                 'eventName' => $faker->sentence($nbWords = 3, $variableNbWords = true),

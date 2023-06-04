@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UmumController;
+use App\Http\Controllers\SearchPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::get('search-results', 'App\Http\Controllers\SearchPageController@index');
 Route::get('userUmum', 'App\Http\Controllers\UserUmumController@getData');
 Route::get('search-results/search', 'App\Http\Controllers\SearchPageController@searchMCEvent');
 // Route::get('search-results/filter', 'App\Http\Controllers\FilterController@filterData');
-Route::get('/search-results/filter', [SearchPageController::class, 'searchMCEvent'])->name('SearchPage.searchMCEvent');
+Route::get('search-results/filter', [SearchPageController::class, 'filter'])->name('filter');
 
 
 //dev

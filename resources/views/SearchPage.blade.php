@@ -14,37 +14,35 @@
         <div style="position: absolute; right: 1rem; margin-top: 7rem">
             <div class="filter-container" style="width:215px; background-color: #D9D9D9; border-radius: 38px">
                 <div class="filter-body" style="padding-top: 10px; padding-left: 20px; padding-right: 20px; padding-bottom: 30px">
-                    <form action="{{ url('search-results/filter') }}" method="GET">
+                    <form action="{{ route('filter') }}" method="GET">
+                        <!-- Add the search term as a hidden input field -->
+                        <input type="hidden" name="search" value="{{ request('search') }}">
                         <h4 style=" text-align: center;">
                             Filter
                         </h4>
                         <div style="margin-top: 0.75rem; margin-bottom: 0.5rem; font-weight: 600">
                             Category
                         </div>
-                            {{-- @foreach ($collection as $item)     --}}
                         <div class="" style="position: relative; display: block;">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="mcCheckbox" name="id">
+                                <input type="checkbox" class="custom-control-input" id="mcCheckbox" name="MC" value="2">
                                 <label class="custom-control-label" for="mcCheckbox">MC</label>
                             </div>
                             <div class="" style="position: relative;display: block;">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="eventCheckbox" name="event">
+                                    <input type="checkbox" class="custom-control-input" id="eventCheckbox" name="Event" value="3">
                                     <label class="custom-control-label" for="eventCheckbox">Event</label>
                                 </div>
                             </div>
-                            {{-- @endforeach  --}}
                             <div style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600">
                                 Location
                             </div>
-                            {{-- @foreach ($collection as $item)     --}}
-                            <select name="location" class="custom-select">
-                                <option selected>Select the location</option>
-                                <option value="Jakarta">Jakarta</option>
-                                <option value="fiat">Surabaya</option>
-                                <option value="audi">Semarang</option>
+                            <select name="Location" class="custom-select">
+                                <option value="" selected>Select the location</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city }}">{{ $city }}</option>
+                                @endforeach
                             </select>
-                            {{-- @endforeach  --}}
                             <div style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600">
                                 Price
                             </div>
@@ -118,7 +116,7 @@
         </div>
     </div>
     <div class="" style="position: relative; left: 42.5%; right: 57.5%;">
-        {{ $akunmc->links() }}
+        {{ $akunmc->appends(request()->except('page'))->links() }}
     </div>
 </div>
 @endsection
