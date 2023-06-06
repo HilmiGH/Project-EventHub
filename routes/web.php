@@ -52,5 +52,5 @@ Route::get('/landingpage/detailedinfo', 'App\Http\Controllers\LandingPageControl
 Route::get('/landingpage/morerating', 'App\Http\Controllers\LandingPageController@moreRating');
 Route::get('/landingpage/addrating', 'App\Http\Controllers\LandingPageController@addRating');
 
-Route::get('/EditEvent', 'App\Http\Controllers\UmumController@editevent');
-Route::post('/EditEvent/update', 'App\Http\Controllers\UmumController@update');
+Route::get('/EditEvent', 'App\Http\Controllers\EditEventController@editevent');
+Route::post('/EditEvent/update', 'App\Http\Controllers\EditEventController@update');

@@ -56,13 +56,13 @@
                         style="width: 40px; height: 40px;">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    @foreach ($akunumum as $info_akun)
+                    {{-- @foreach ($akunumum as $info_akun)
                     <a class="dropdown-item" href="/landingpage">Home</a>
                     <a class="dropdown-item" href="/landingpage/myprofile/{{ $info_akun->umumID }}">My Profile </a>
                     <a class="dropdown-item" href="/landingpage/editprofile/{{ $info_akun->umumID }}">Edit Profile</a>
                     <a class="dropdown-item" href="#" id="logoutDropdown">Logout</a>
                     @break
-                    @endforeach
+                    @endforeach --}}
                 </div>
             </div>
         </div>
