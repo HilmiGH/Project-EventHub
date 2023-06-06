@@ -4,33 +4,9 @@
   <title>Centered Text</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  height: 140px; /* Sesuaikan dengan kebutuhan */
-}
 
-.round-button {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: white;
-  border: black;
-}
-
-.round-button:nth-child(1) {
-  background-color: black;
-}
-
-.round-button:nth-child(2) {
-  background-color: black;
-}
-
-.round-button:nth-child(3) {
-  background-color: black;
+    .btn-container {
+  text-align: center;
 }
     .custom-input {
       border: 2px solid black;
@@ -64,6 +40,14 @@
     .custom-text span {
       color: pink;
     }
+    .btn-container {
+  text-align: center;
+  margin-top: 40px;
+}
+  .input {
+    margin-top: 70px;
+  }
+
   </style>
 </head>
 <body>
@@ -76,17 +60,29 @@
       </div>
     </div>
   </div>
-  <div class="button-container">
-    <div class="row">
-    <div class="col-12 text-center">
-    <button class="round-button"></button>
-    <button class="round-button"></button>
-    <button class="round-button"></button>
+  <div class="btn-container">
+ <form action="/action_page.php">
+    <div class="form-check-inline">
+      <label class="form-check-label" for="radio1">
+        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">MC
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label" for="radio2">
+        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Event Organizer
+      </label>
+   </div>
+    <div class="form-check-inline">
+      <label class="form-check-label" for="radio3">
+        <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Public
+      </label>
+    </div>
+    </form>
   </div>
-</div>
-</div>
+
 
   <div class="container">
+    <div class="input">
         <form>
           <div class="form-group">
             <label class="custom-label" for="username">Username</label>
@@ -100,9 +96,10 @@
           <p class="custom-text">
             Already have a account? <span>Login</span>.
           </p>
-        </form>
       </div>
+    </div>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+

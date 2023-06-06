@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Centered Text</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .card {
       border-width: 3px;
       border-color: black;
+
+
     }
     .custom-input {
       border: 2px solid black;
@@ -46,9 +47,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center mt-5 pt-5">
-        <h3 style="font-size: larger;font-family: serif;font-weight: bold;">Hi There Welcome to EventHub</h3>
+      <div class="col-lg"></div>
+      <div class="col-lg">
+        <h3 style="font-size: larger; font-family: serif; font-weight: bold; text-align: right; margin-top:40px">Hi There Welcome to</h3>
       </div>
+      <div class="col-lg">
+        <img src="img/eventhub.png"style="width:230px;height:100px">
+      </div>
+      <div class="col-lg"></div>
     </div>
   </div>
 

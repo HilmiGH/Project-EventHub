@@ -15,7 +15,7 @@ class SearchPageController extends Controller
 
     public function searchMCEvent(Request $request)
     {
-        $cities = [];
+      $cities = [];
         if (($handle = fopen(public_path('csv/cities.csv'), 'r')) !== false) {
             while (($data = fgetcsv($handle, 1000, ',')) !== false) {
                 $parts = explode(',', $data[2]);
@@ -127,6 +127,7 @@ class SearchPageController extends Controller
         
 
         $eventsQuery = DB::table('events')
+
         ->select('eventID AS id', 'eventName AS col1', 'numberOfMC AS col2', 'eventLocation AS col3', 'eventDate AS col4', DB::raw("'' AS col5"), 'eventType AS col6', 'jenisAccountID')
         ->where(function ($query) use ($search) {
             $query->where('eventName', 'LIKE', "%{$search}%");

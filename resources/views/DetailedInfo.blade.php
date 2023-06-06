@@ -117,7 +117,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <h4 style="margin-right: 0.3cm; margin-left: 0.5cm">Reviews</h4><button><a href="/landingpage/morerating"
+                        <h4 style="margin-right: 0.3cm; margin-left: 0.5cm">Reviews</h4>
+                        <button><a href="/landingpage/morerating"
                                 class='fas fa-angle-right'></a></button>
                     </div>
                     <div class="row">

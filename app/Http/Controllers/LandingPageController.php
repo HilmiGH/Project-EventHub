@@ -15,10 +15,10 @@ class LandingPageController extends Controller
     {
     	// mengambil data dari table pegawai
     	$akunumum = DB::table('akunumum')->get();
-		
+
     	// mengirim data pegawai ke view index
     	return view('LandingPage',['akunumum' => $akunumum, 'akunCounter' => 0]);
- 
+
     }
 
 	public function editProfile(){

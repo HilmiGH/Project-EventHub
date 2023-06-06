@@ -16,11 +16,12 @@ class EventsTableSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
 
-        for ($i=1; $i <= 20; $i++) { 
+        for ($i=1; $i <= 20; $i++) {
             DB::table('events')->insert([
                 'jenisAccountID' => '3',
                 'eventID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
                 'eoID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
+                'jenisAccountID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
                 'eventName' => $faker->sentence($nbWords = 3, $variableNbWords = true),
                 'eventType' => $faker->randomElement($array = array ('Online','Offline')),
                 'eventLocation' => $faker->address,

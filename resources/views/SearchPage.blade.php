@@ -9,7 +9,7 @@
 <!-- isi bagian konten -->
 <!-- cara penulisan isi section yang panjang -->
 @section('content')
-    <div class="container" style="padding-right:10rem; min-height: 800px;">
+    <div class="container" style="padding-right:10rem; min-height: 800px">
         {{-- Filter --}}
         <div style="position: absolute; right: 1rem; margin-top: 7rem">
             <div class="filter-container" style="width:215px; background-color: #D9D9D9; border-radius: 38px">
@@ -28,7 +28,8 @@
                                 <input type="checkbox" class="custom-control-input" id="mcCheckbox" name="MC" value="2">
                                 <label class="custom-control-label" for="mcCheckbox">MC</label>
                             </div>
-                            <div class="" style="position: relative;display: block;">
+                            <div class="" style="position: relative;
+                                display: block;">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="eventCheckbox" name="Event" value="3">
                                     <label class="custom-control-label" for="eventCheckbox">Event</label>
@@ -103,12 +104,16 @@
                         <p class="card-text">Rp {{ $info_akun->mcPriceMin .' - '. $info_akun ->mcPriceMax}}</p> --}}
                         <a href="#" class="btn btn-danger"> {{ $info_akun->col6 }} </a>
                     </div>
-                </div>      
+                </div>
             </div>
             @php
                 $akunCounter++;
             @endphp
             @endforeach
+        </div>
+        <div class="" style="position: relative; left: 42.5%; right: 57.5%;">
+            {{ $akunmc->links() }}
+        </div>
         </div>
     </div>
     <div class="" style="position: relative; left: 42.5%; right: 57.5%;">
