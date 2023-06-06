@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('eventName', 200);
             $table->string('eventType', 30);
             $table->string('eventLocation', 100);
-            $table->dateTime('eventDate');
+            $table->date('eventDate' );
             $table->string('numberOfMC', 30);
             $table->string('eventDescription', 500);
             $table->string('eventImage', 500);
