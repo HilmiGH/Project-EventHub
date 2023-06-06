@@ -14,39 +14,38 @@ use App\Http\Controllers\UmumController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('halo', function () {
-	return "Halo, Selamat datang di tutorial laravel www.malasngoding.com";
-});
-
-Route::get('umum', 'App\Http\Controllers\UmumController@index');
-
 Route::get('/mc/{nama}', 'App\Http\Controllers\McController@index');
 
 Route::get('signin', 'App\Http\Controllers\SignInController@signin');
 Route::get('signup', 'App\Http\Controllers\SignUpController@signup');
+Route::get('signupmc', 'App\Http\Controllers\SignUpMcController@signupmc');
+Route::get('signupeo', 'App\Http\Controllers\SignUpEoController@signupeo');
 
 Route::get('/TopMC', 'App\Http\Controllers\TopMCController@TopMC');
 Route::get('/UpcomingEvent', 'App\Http\Controllers\UpcomingEventController@upcomingEvent');
 
-Route::get('/EditProfile', 'App\Http\Controllers\UmumController@editProfile');
-Route::post('/EditProfile/update', 'App\Http\Controllers\UmumController@update');
+Route::get('/Search', 'App\Http\Controllers\SearchPageController@searchpage');
+
+Route::get('/landingpage', 'App\Http\Controllers\LandingPageController@index');
+Route::get('/', 'App\Http\Controllers\LandingPageController@index');
 
 Route::get('search-results', 'App\Http\Controllers\SearchPageController@index');
 Route::get('userUmum', 'App\Http\Controllers\UserUmumController@getData');
 Route::get('search-results/search', 'App\Http\Controllers\SearchPageController@searchMCEvent');
 // Route::get('search-results/filter', 'App\Http\Controllers\FilterController@filterData');
-Route::get('/search-results/filter', [SearchPageController::class, 'searchMCEvent'])->name('SearchPage.searchMCEvent');
+Route::get('search-results/filter', [SearchPageController::class, 'filter'])->name('filter');
 
+Route::get('/landingpage/myprofile/{id}', 'App\Http\Controllers\ProfileController@myProfile');
+Route::get('/landingpage/editprofile/{id}', 'App\Http\Controllers\ProfileController@editProfile');
+Route::post('/landingpage/myprofileUpdate', 'App\Http\Controllers\ProfileController@myProfileUpdate');
 
-//dev
-// Route::get('/landingpage', 'App\Http\Controllers\LandingPageController@landingPage');
-Route::get('/landingpage', 'App\Http\Controllers\LandingPageController@index');
-Route::get('/landingpage/myprofile', 'App\Http\Controllers\LandingPageController@myProfile');
-Route::get('/landingpage/editprofile', 'App\Http\Controllers\LandingPageController@editProfile');
+Route::get('/landingpage/editprofilemc', 'App\Http\Controllers\ProfileController@editProfileMC');
+Route::post('/landingpage/myprofilemc', 'App\Http\Controllers\ProfileController@myProfileMC');
+Route::get('/landingpage/myprofilemc', 'App\Http\Controllers\ProfileController@myProfileMC');
+
+Route::get('/landingpage/editprofileeo', 'App\Http\Controllers\ProfileController@editProfileEO');
+Route::post('/landingpage/myprofileeo', 'App\Http\Controllers\ProfileController@myProfileEO');
+Route::get('/landingpage/myprofileeo', 'App\Http\Controllers\ProfileController@myProfileEO');
 
 Route::get('/landingpage/detailedinfo', 'App\Http\Controllers\LandingPageController@detailedInfo');
 Route::get('/landingpage/morerating', 'App\Http\Controllers\LandingPageController@moreRating');

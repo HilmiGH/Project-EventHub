@@ -1,6 +1,7 @@
+
 @extends('main')
 
-@section('judul_halaman', 'Halaman MyProfile')
+@section('judul_halaman', 'Halaman MyProfile MC')
 
 @section('content')
 
@@ -49,31 +50,52 @@
                             <div class="progress-bar bg-dark" style="width:100%"></div>
                         </div>
                         <div class="row">
-                            @foreach ($akunumum as $info_akun)
                             <div class="col-md-8" style="margin-top: 0.5cm;">
                                 <div class="form-group">
                                     <label class="font-weight-bold">Username:</label>
-                                    <p>{{ $info_akun->umumUsername }}</p>
+                                    <p>{{ $username }}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label class="font-weight-bold">Fullname:</label>
-                                    <p>{{ $info_akun->umumFullName }}</p>
+                                    <label class="font-weight-bold">Full Name:</label>
+                                    <p>{{ $name }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Email:</label>
+                                    <p>{{ $email }}</p>
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold">Phone Number:</label>
-                                    <p>{{ $info_akun->umumPhone }}</p>
+                                    <p>{{ $phone }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Instagram:</label>
+                                    <p>{{ $instagram }}</p>
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold">City:</label>
-                                    <p>{{ $info_akun->umumCity }}</p>
+                                    <p>{{ $city }}</p>
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold">Date of Birth:</label>
-                                    <p>{{ $info_akun->umumDOB }}</p>
+                                    <p>{{ $dob }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Language:</label>
+                                    <p>{{ $language }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Specialization:</label>
+                                    <p>{{ $specialization }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Price Range:</label>
+                                    <p>{{ $priceRange }}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Experience:</label>
+                                    <p>{{ $experience }}</p>
                                 </div>
                             </div>
-                            @break
-                            @endforeach
                         </div>
                     </div>
                 </div>
