@@ -38,7 +38,7 @@
                                 Location
                             </div>
                             <select name="Location" class="custom-select">
-                                <option value="" selected>Select the location</option>
+                                <option value="0" selected>Select the location</option>
                                 @foreach ($cities as $city)
                                     <option value="{{ $city }}">{{ $city }}</option>
                                 @endforeach
@@ -49,38 +49,34 @@
                             <label>Maximum Price</label>
                             <div class="input-group input-group-sm mb-1">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="filter-maximum-price">Rp</span>
+                                    <span class="input-group-text" id="filter-maximum-price">Rp</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="maximum price filter" aria-describedby="filter-maximum-price">
+                                <input type="text" class="form-control" name="max_price" aria-label="maximum price filter" aria-describedby="filter-maximum-price">
                             </div>
                             <label>Minimum Price</label>
                             <div class="input-group input-group-sm">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="filter-minimum-price">Rp</span>
+                                    <span class="input-group-text" id="filter-minimum-price">Rp</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="minimum price filter" aria-describedby="filter-minimum-price">
+                                <input type="text" class="form-control" name="min_price" aria-label="minimum price filter" aria-describedby="filter-minimum-price">
                             </div>
                             <div style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600">Date</div>
                             <div class="form-group">
-                                <input type="date" class="form-control" id="filter-date">
+                                <input type="date" class="form-control" name="date_filter" value="{{ request('date_filter') }}">
                             </div>
                             <div style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600">Event Type</div>
-                            {{-- @foreach ($collection as $item)     --}}
-                                <div class="" style="position: relative;
-                                display: block;">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="entertainmentCheckbox" name="filter-entertainment">
-                                        <label class="custom-control-label" for="entertainmentCheckbox">Entertainment</label>
-                                    </div>
+                            <div class="" style="position: relative; display: block;">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="onlineCheckbox" name="eventType" value="Online">
+                                    <label class="custom-control-label" for="onlineCheckbox">Online</label>
                                 </div>
-                                <div class="" style="position: relative;
-                                display: block;">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="educationCheckbox" name="filter-education">
-                                        <label class="custom-control-label" for="educationCheckbox">Education</label>
-                                    </div>
+                            </div>
+                            <div class="" style="position: relative; display: block;">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="offlineCheckbox" name="eventType" value="Offline">
+                                    <label class="custom-control-label" for="offlineCheckbox">Offline</label>
                                 </div>
-                            {{-- @endforeach  --}}
+                            </div>
                             <button type="submit" class="btn btn-danger mt-3">
                                 Filter
                             </button>

@@ -24,7 +24,7 @@ class EventsTableSeeder extends Seeder
                 'eventName' => $faker->sentence($nbWords = 3, $variableNbWords = true),
                 'eventType' => $faker->randomElement($array = array ('Online','Offline')),
                 'eventLocation' => $faker->address,
-                'eventDate' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
+                'eventDate' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'numberOfMC' => $faker->numberBetween($min = 1, $max = 10),
                 'eventDescription' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'eventImage' => $faker->imageUrl($width = 640, $height = 480),
