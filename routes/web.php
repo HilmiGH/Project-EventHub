@@ -51,3 +51,6 @@ Route::get('/landingpage/myprofileeo', 'App\Http\Controllers\ProfileController@m
 Route::get('/landingpage/detailedinfo', 'App\Http\Controllers\LandingPageController@detailedInfo');
 Route::get('/landingpage/morerating', 'App\Http\Controllers\LandingPageController@moreRating');
 Route::get('/landingpage/addrating', 'App\Http\Controllers\LandingPageController@addRating');
+
+Route::get('/EditEvent', 'App\Http\Controllers\UmumController@editevent');
+Route::post('/EditEvent/update', 'App\Http\Controllers\UmumController@update');
