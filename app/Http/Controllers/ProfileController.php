@@ -2,80 +2,71 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
 
-    public function myProfile()
+    public function myprofile(Request $request): View
     {
-        // mengambil data dari table pegawai
-        $akunumum = DB::table('akunumum')->get();
-
-        // mengirim data pegawai ke view index
-        return view('MyProfile',['akunumum' => $akunumum]);
-
+        return view('MyProfile', [
+            'user' => $request->user(),
+        ]);
     }
 
-    public function editProfile($id){
-        // mengambil data pegawai berdasarkan id yang dipilih
-        $akunumum = DB::table('akunumum')->where('umumID',$id)->get();
-        // passing data pegawai yang didapat ke view edit.blade.php
-        return view('EditProfile',['akunumum' => $akunumum]);
-    }
-
-    public function myProfileUpdate(Request $request)
+    /**
+     * Display the user's profile form.
+     */
+    public function edit(Request $request): View
     {
-
-        // update data pegawai
-	    DB::table('akunumum')->where('umumID',$request->umumid)->update([
-		'umumUsername' => $request->umumUsername,
-		'umumFullName' => $request->umumFullName,
-		'umumPhone' => $request->umumPhone,
-		'umumCity' => $request->umumCity,
-        'umumDOB' => $request->umumDOB
-	]);
-	// alihkan halaman ke halaman pegawai
-	return redirect('/landingpage/myprofile/{id}');
-
+        return view('profile.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
-    public function editProfileMC(){
-        return view('EditProfileMC');
-    }
-
-    public function editProfileEO(){
-        return view('EditProfileEO');
-    }
-
-    public function myProfileMC(Request $request)
+    /**
+     * Update the user's profile information.
+     */
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $username = $request->input('username');
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $phone = $request->input('phone');
-        $instagram = $request->input('instagram');
-        $city = $request->input('city');
-        $dob = $request->input('dob');
-        $language = $request->input('language');
-        $specialization = $request->input('specialization');
-        $priceRange = $request->input('price-range');
-        $experience = $request->input('experience');
+        $request->user()->fill($request->validated());
 
-        return view('MyProfileMC', compact('username', 'name', 'email', 'phone', 'instagram', 'city', 'dob', 'language', 'specialization', 'priceRange', 'experience'));
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
+
+        $request->user()->umumUsername = $request->input('umumUsername');
+        $request->user()->umumPhone = $request->input('umumPhone');
+        $request->user()->umumCity = $request->input('umumCity');
+        $request->user()->umumDOB = $request->input('umumDOB');
+        $request->user()->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
-    public function myProfileEO(Request $request)
+    /**
+     * Delete the user's account.
+     */
+    public function destroy(Request $request): RedirectResponse
     {
-        $username = $request->input('username');
-        $password = $request->input('password');
-        $companyname = $request->input('companyname');
-        $companytype = $request->input('companytype');
-        $city = $request->input('city');
-        $contactperson = $request->input('contactperson');
-        $eventcategory = $request->input('eventcategory');
+        $request->validateWithBag('userDeletion', [
+            'password' => ['required', 'current_password'],
+        ]);
 
-        return view('MyProfileEO', compact('username', 'password', 'companyname', 'companytype', 'city', 'contactperson', 'eventcategory'));
+        $user = $request->user();
+
+        Auth::logout();
+
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/');
     }
 }
