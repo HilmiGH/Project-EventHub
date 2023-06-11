@@ -111,10 +111,7 @@
             @endphp
             @endforeach
         </div>
-        <div class="" style="position: relative; left: 42.5%; right: 57.5%;">
-            {{ $akunmc->links() }}
-        </div>
-        </div>
+    </div>
     </div>
     <div class="" style="position: relative; left: 42.5%; right: 57.5%;">
         {{ $akunmc->appends(request()->except('page'))->links() }}

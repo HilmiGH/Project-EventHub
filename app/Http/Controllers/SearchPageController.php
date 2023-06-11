@@ -49,7 +49,7 @@ class SearchPageController extends Controller
 
     public function filter(Request $request)
     {
-        
+
         $cities = [];
         if (($handle = fopen(public_path('csv/cities.csv'), 'r')) !== false) {
             while (($data = fgetcsv($handle, 1000, ',')) !== false) {
@@ -66,7 +66,7 @@ class SearchPageController extends Controller
             }
             fclose($handle);
         }
-        
+
         $mcFilter = 0;
         $eventFilter = 0;
         $locationFilter = 0;
@@ -99,7 +99,7 @@ class SearchPageController extends Controller
         } elseif ($eventFilter == "3") {
             $akunMCQuery->where('jenisAccountID', '=', "3");
         }
-        
+
         if ($locationFilter != "0") {
             $akunMCQuery->where('mcCity', '=', $locationFilter);
         }
@@ -107,14 +107,14 @@ class SearchPageController extends Controller
         if ($maxPrice != "0" && is_numeric($maxPrice)) {
             $akunMCQuery->where('mcPriceMax', '<=', $maxPrice);
         }
-        
+
         if ($minPrice != "0" && is_numeric($minPrice)) {
             $akunMCQuery->where(function ($query) use ($minPrice, $maxPrice) {
                 $query->where(function ($query) use ($minPrice) {
                     $query->where('mcPriceMin', '>=', $minPrice)
                         ->orWhere('mcPriceMax', '>=', $minPrice);
                 });
-        
+
                 if ($maxPrice !== null && is_numeric($maxPrice)) {
                     $query->where(function ($query) use ($maxPrice) {
                         $query->where('mcPriceMax', '<=', $maxPrice)
@@ -123,8 +123,8 @@ class SearchPageController extends Controller
                 }
             });
         }
-        
-        
+
+
 
         $eventsQuery = DB::table('events')
 
@@ -143,7 +143,7 @@ class SearchPageController extends Controller
             } elseif ($eventFilter == "3") {
                 $eventsQuery->where('jenisAccountID', '=', "3");
             }
-            
+            // dd($eventsQuery->get());
             if ($locationFilter != "0") {
                 $eventsQuery->where('eventLocation', '=', $locationFilter);
             }
@@ -160,7 +160,7 @@ class SearchPageController extends Controller
                 $akunMCQuery->where('jenisAccountID', '=', '3');
             };
 
-            
+
             if ($eventTypeFilter) {
                 $eventsQuery->where('eventType', '=', $eventTypeFilter);
                 $akunMCQuery->where('jenisAccountID', '=', '3');

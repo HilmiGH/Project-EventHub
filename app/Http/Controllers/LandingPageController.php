@@ -14,10 +14,10 @@ class LandingPageController extends Controller
 	public function index()
     {
     	// mengambil data dari table pegawai
-    	$akunumum = DB::table('akunumum')->get();
+    	$akunmc = DB::table('akunmc')->get();
 
     	// mengirim data pegawai ke view index
-    	return view('LandingPage',['akunumum' => $akunumum, 'akunCounter' => 0]);
+    	return view('LandingPage',['akunmc' => $akunmc, 'akunCounter' => 0]);
 
     }
 
