@@ -16,7 +16,23 @@ use App\Http\Controllers\SearchPageController;
 |
 */
 
-Route::get('/mc/{nama}', 'App\Http\Controllers\McController@index');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/edit', [SeputarProfileController::class, 'myProfile']);
+Route::get('/landingpage/myprofile', [SeputarProfileController::class, 'myProfile']);
+
+Route::get('/landingpage', [LandingPageController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/myprofile', [ProfileController::class, 'myprofile']);
+});
 
 Route::get('/Search', 'App\Http\Controllers\SearchPageController@searchpage');
 
@@ -32,3 +48,5 @@ Route::get('search-results/filter', [SearchPageController::class, 'filter'])->na
 Route::get('/landingpage/detailedinfo', 'App\Http\Controllers\LandingPageController@detailedInfo');
 Route::get('/landingpage/morerating', 'App\Http\Controllers\LandingPageController@moreRating');
 Route::get('/landingpage/addrating', 'App\Http\Controllers\LandingPageController@addRating');
+
+require __DIR__.'/auth.php';
