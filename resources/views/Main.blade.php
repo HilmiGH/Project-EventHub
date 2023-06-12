@@ -27,10 +27,18 @@
             color: #ffffff;
         }
 
+        .search-link:hover {
+            transform: translateY(-2px);
+        }
+
         .form-control {
             border-width: 2px;
             border-color: red;
             border-radius: 30px;
+        }
+
+        .search-form:hover{
+            transform: translateY(-2px);
         }
 
         .dropdown-link {
@@ -62,7 +70,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <form class="form-inline mx-auto" action="{{ url('search-results/search') }}"
                 style="margin-top: 0.3cm; margin-bottom: 0.3cm;">
-                <input class="form-control mr-sm-2" name="search" value="{{ old('search') }}" aria-label="Search"
+                <input class="form-control mr-sm-2 search-form" name="search" value="{{ old('search') }}" aria-label="Search"
                     placeholder="Find event or mc here" aria-label="Search" style="width: 15cm">
                 <button class="search-link" type="submit"><i class="fas fa-search"></i></button>
             </form>
