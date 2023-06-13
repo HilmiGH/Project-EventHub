@@ -77,7 +77,7 @@
                 @break
             @endif
             <div class="col-md-3" style="margin-bottom: 3rem;">
-                <div class="card" style="width:200px; min-height: 24rem; border-radius: 15px">
+                <div class="card" style="width:200px; min-height: 24rem; border-radius: 15px; box-shadow: 2px 2px 2px darkgray">
                     <img class="card-img-top" style="border-top-right-radius: 15px; border-top-left-radius: 15px" src= {{ asset('img/Portrait.png') }} alt="Card image" style="width:100%;">
                     <div class="card-body" style="display: grid;">
                         <h4 class="card-title truncate-text" style="text-align: center;">{{ $info_akun->col1 }}</h4>
