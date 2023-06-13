@@ -38,7 +38,7 @@
                     <div>
                         <label class="custom-label" for="email">Email</label>
                         <x-text-input id="email" class="form-control custom-input" type="email" name="email"
-                            :value="old('email')" required autofocus autocomplete="username" />
+                            :value="old('email')" required autofocus autocomplete="username" placeholder="Enter your email in here"/>
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
@@ -47,7 +47,7 @@
                         <label class="custom-label" for="password">Password</label>
 
                         <x-text-input id="password" class="form-control custom-input" type="password" name="password" required
-                            autocomplete="current-password" />
+                            autocomplete="current-password" placeholder="Enter your correct password in here"/>
 
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
