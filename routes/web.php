@@ -49,4 +49,6 @@ Route::get('/landingpage/detailedinfo', 'App\Http\Controllers\LandingPageControl
 Route::get('/landingpage/morerating', 'App\Http\Controllers\LandingPageController@moreRating');
 Route::get('/landingpage/addrating', 'App\Http\Controllers\LandingPageController@addRating');
 
+Route::get('/FullProfileEvent', 'App\Http\Controllers\FullProfileEventController@profile');
+
 require __DIR__.'/auth.php';
