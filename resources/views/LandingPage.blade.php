@@ -17,7 +17,7 @@
                         <div class="card-body" style="margin-bottom: 20px">
                             <h4 class="card-title">{{ $info_akun->mcUsername }}</h4>
                             <p class="card-text">{{ $info_akun->mcCity }}</p>
-                            <a href="/landingpage/detailedinfo" class="btn btn-danger">See Profile</a>
+                            <a href="{{ route('profile.show', $info_akun->id) }}" class="btn btn-danger">See Profile</a>
                         </div>
                     </div>
                 </div>

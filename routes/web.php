@@ -45,7 +45,8 @@ Route::get('search-results/search', 'App\Http\Controllers\SearchPageController@s
 
 Route::get('search-results/filter', [SearchPageController::class, 'filter'])->name('filter');
 
-Route::get('/landingpage/detailedinfo', 'App\Http\Controllers\LandingPageController@detailedInfo');
+Route::get('/landingpage/detailedinfo/{id}', 'App\Http\Controllers\ProfileController@showProfile')->name('profile.show');
+
 Route::get('/landingpage/morerating', 'App\Http\Controllers\LandingPageController@moreRating');
 Route::get('/landingpage/addrating', 'App\Http\Controllers\LandingPageController@addRating');
 
