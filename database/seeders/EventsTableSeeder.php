@@ -31,7 +31,7 @@ class EventsTableSeeder extends Seeder
                 'eventDate' => $faker->dateTimeBetween('2022-01-01', '2025-12-31')->format('Y-m-d'),
                 'numberOfMC' => $faker->numberBetween($min = 1, $max = 10),
                 'eventDescription' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-                'eventImage' => $faker->imageUrl($width = 640, $height = 480),
+                'eventImage' => 'img/EventPhoto.jpg',
             ]);
         }
     }

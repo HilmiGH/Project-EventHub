@@ -34,12 +34,12 @@ class SearchPageController extends Controller
 
         $search = $request->input('search');
         $akunMCQuery = DB::table('akunMC')
-            ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID AS col7')
+            ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'See Profile' AS col6"), 'jenisAccountID AS col7', 'mcImage AS col8')
             ->where('mcUsername', 'LIKE', "%{$search}%")
             ->orWhere('mcFullName', 'LIKE', "%{$search}%");
 
         $eventsQuery = DB::table('events')
-            ->select('eventID AS id', 'eventName AS col1', 'numberOfMC AS col2', 'eventLocation AS col3', 'eventDate AS col4', DB::raw("'' AS col5"), 'eventType AS col6', 'jenisAccountID AS col7')
+            ->select('eventID AS id', 'eventName AS col1', 'numberOfMC AS col2', 'eventLocation AS col3', 'eventDate AS col4', DB::raw("'' AS col5"), 'eventType AS col6', 'jenisAccountID AS col7', 'eventImage AS col8')
             ->where('eventName', 'LIKE', "%{$search}%");
 
         $searchResults = $akunMCQuery->union($eventsQuery)->paginate(16);
@@ -83,7 +83,7 @@ class SearchPageController extends Controller
         $eventTypeFilter = $request->input('eventType');
 
         $akunMCQuery = DB::table('akunMC')
-        ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID')
+        ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID', 'mcImage AS col8')
         ->where(function ($query) use ($search) {
             $query->where('mcUsername', 'LIKE', "%{$search}%")
                 ->orWhere('mcFullName', 'LIKE', "%{$search}%");
@@ -128,7 +128,7 @@ class SearchPageController extends Controller
 
         $eventsQuery = DB::table('events')
 
-        ->select('eventID AS id', 'eventName AS col1', 'numberOfMC AS col2', 'eventLocation AS col3', 'eventDate AS col4', DB::raw("'' AS col5"), 'eventType AS col6', 'jenisAccountID')
+        ->select('eventID AS id', 'eventName AS col1', 'numberOfMC AS col2', 'eventLocation AS col3', 'eventDate AS col4', DB::raw("'' AS col5"), 'eventType AS col6', 'jenisAccountID', 'eventImage AS col8')
         ->where(function ($query) use ($search) {
             $query->where('eventName', 'LIKE', "%{$search}%");
         });

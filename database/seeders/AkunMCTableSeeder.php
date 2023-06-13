@@ -64,7 +64,7 @@ class AkunMCTableSeeder extends Seeder
             'mcSpecialization' => $faker->randomElement($specializations),
             'mcExperience' => $faker->text($maxNbChars = 200),
             'ratingMCID' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 5),
-            'mcImage' => $faker->imageUrl($width = 640, $height = 480),
+            'mcImage' => 'img/Portrait.png',
         ]);
         }
     }
