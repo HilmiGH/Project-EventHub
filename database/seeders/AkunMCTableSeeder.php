@@ -33,6 +33,19 @@ class AkunMCTableSeeder extends Seeder
         'Religious Events'
     ];
 
+    $languages = [
+        'ID',  // Indonesian
+        'US',  // English (United States)
+        'FR',  // French
+        'ES',  // Spanish
+        'DE',  // German
+        'IT',  // Italian
+        'JP',  // Japanese
+        'CN',  // Chinese
+        'KR',  // Korean
+        'RU',  // Russian
+    ];
+
     for ($i = 1; $i <= 200; $i++) {
         $city = $faker->city;
         $city = str_replace('Administrasi ', '', $city);
@@ -44,13 +57,13 @@ class AkunMCTableSeeder extends Seeder
             'mcPhone' => $faker->phoneNumber,
             'jenisAccountID' => '2',
             'mcDOB' => $faker->dateTimeBetween($startDate = '-30 years', $endDate = '-20 years', $timezone = null),
-            'mcLanguage' => $faker->languageCode,
+            'mcLanguage' => $faker->randomElement($languages),
             'mcPriceMin' => $faker->numberBetween($min = 50000, $max = 999999),
             'mcPriceMax' => $faker->numberBetween($min = 999999, $max = 10000000),
             'mcCity' => $city,
             'mcSpecialization' => $faker->randomElement($specializations),
             'mcExperience' => $faker->text($maxNbChars = 200),
-            'ratingMCID' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 5),
+            'ratingMCID' => $faker->randomFloat($nbMaxDecimals = 2, $min = 3, $max = 5),
             'mcImage' => $faker->imageUrl($width = 640, $height = 480),
         ]);
         }
