@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row" style="margin-top: 10cm">
+    <div class="row" style="margin-top: 2.5cm">
         <div class="col-md-6 offset-md-3">
             @foreach ($akunmc as $info_akun)
             <p>Username: {{ $info_akun->mcUsername }}</p>
