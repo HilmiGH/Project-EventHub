@@ -19,6 +19,7 @@ class LandingPageController extends Controller
     	// mengirim data pegawai ke view index
     	return view('LandingPage',['akunmc' => $akunmc, 'akunCounter' => 0]);
 
+
     }
 
 	public function editProfile(){
