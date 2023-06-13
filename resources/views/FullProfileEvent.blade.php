@@ -13,7 +13,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
-    <section style="background-color: #eee;">
+    <section style="">
         <div class="container py-5" style="margin-top: 1.5cm">
             <div class="row">
                 <div class="col">
