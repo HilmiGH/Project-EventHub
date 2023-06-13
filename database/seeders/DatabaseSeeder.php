@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            AkunUmumTableSeeder::class,
             AkunMCTableSeeder::class,
             AkunTableSeeder::class,
             EventsTableSeeder::class,

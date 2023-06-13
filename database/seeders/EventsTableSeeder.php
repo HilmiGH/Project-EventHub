@@ -21,7 +21,7 @@ class EventsTableSeeder extends Seeder
                 'jenisAccountID' => '3',
                 'eventID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
                 'eoID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
-                'jenisAccountID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
+                'jenisAccountID' => '3',
                 'eventName' => $faker->sentence($nbWords = 3, $variableNbWords = true),
                 'eventType' => $faker->randomElement($array = array ('Online','Offline')),
                 'eventLocation' => $faker->address,
