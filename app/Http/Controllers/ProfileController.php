@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\Akun;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+
 
 class ProfileController extends Controller
 {
@@ -68,5 +71,12 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function showProfile($id){
+        // mengambil data pegawai berdasarkan id yang dipilih
+        $akunmc = DB::table('akunmc')->where('id',$id)->get();
+        // passing data pegawai yang didapat ke view edit.blade.php
+        return view('DetailedInfo',['akunmc' => $akunmc]);
     }
 }

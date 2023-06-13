@@ -34,7 +34,7 @@ class SearchPageController extends Controller
 
         $search = $request->input('search');
         $akunMCQuery = DB::table('akunMC')
-            ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID AS col7')
+            ->select('id AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID AS col7')
             ->where('mcUsername', 'LIKE', "%{$search}%")
             ->orWhere('mcFullName', 'LIKE', "%{$search}%");
 
@@ -83,7 +83,7 @@ class SearchPageController extends Controller
         $eventTypeFilter = $request->input('eventType');
 
         $akunMCQuery = DB::table('akunMC')
-        ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID')
+        ->select('id AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID')
         ->where(function ($query) use ($search) {
             $query->where('mcUsername', 'LIKE', "%{$search}%")
                 ->orWhere('mcFullName', 'LIKE', "%{$search}%");
