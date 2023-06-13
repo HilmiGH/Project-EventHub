@@ -57,63 +57,13 @@ class UpcomingEventController extends Controller
             fclose($handle);
         }
 
-        $mcFilter = 0;
         $eventFilter = 0;
         $locationFilter = 0;
-        $maxPrice = 0;
-        $minPrice = 0;
 
         $dateFilter = $request->input('date_filter');
         $search = $request->input('search');
-        $mcFilter = $request->input('MC');
-        $eventFilter = $request->input('Event');
         $locationFilter = $request->input('Location');
-        $maxPrice = $request->input('max_price');
-        $minPrice = $request->input('min_price');
         $eventTypeFilter = $request->input('eventType');
-
-        $akunMCQuery = DB::table('akunMC')
-        ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID')
-        ->where(function ($query) use ($search) {
-            $query->where('mcUsername', 'LIKE', "%{$search}%")
-                ->orWhere('mcFullName', 'LIKE', "%{$search}%");
-        });
-
-        if ($mcFilter == "2" && $eventFilter == "3") {
-            $akunMCQuery->where(function ($query) {
-                $query->where('jenisAccountID', '=', "2")
-                    ->orWhere('jenisAccountID', '=', "3");
-            });
-        } elseif ($mcFilter == "2") {
-            $akunMCQuery->where('jenisAccountID', '=', "2");
-        } elseif ($eventFilter == "3") {
-            $akunMCQuery->where('jenisAccountID', '=', "3");
-        }
-
-        if ($locationFilter != "0") {
-            $akunMCQuery->where('mcCity', '=', $locationFilter);
-        }
-
-        if ($maxPrice != "0" && is_numeric($maxPrice)) {
-            $akunMCQuery->where('mcPriceMax', '<=', $maxPrice);
-        }
-
-        if ($minPrice != "0" && is_numeric($minPrice)) {
-            $akunMCQuery->where(function ($query) use ($minPrice, $maxPrice) {
-                $query->where(function ($query) use ($minPrice) {
-                    $query->where('mcPriceMin', '>=', $minPrice)
-                        ->orWhere('mcPriceMax', '>=', $minPrice);
-                });
-
-                if ($maxPrice !== null && is_numeric($maxPrice)) {
-                    $query->where(function ($query) use ($maxPrice) {
-                        $query->where('mcPriceMax', '<=', $maxPrice)
-                            ->orWhere('mcPriceMin', '<=', $maxPrice);
-                    });
-                }
-            });
-        }
-
 
 
         $eventsQuery = DB::table('events')
@@ -156,7 +106,7 @@ class UpcomingEventController extends Controller
                 $akunMCQuery->where('jenisAccountID', '=', '3');
             };
 
-        $filterResults = $akunMCQuery->union($eventsQuery);
+        $filterResults = $eventsQuery;
 
         // $filteredResults = $filterResults->paginate(16);
         $filteredResults = $filterResults->paginate(16)->appends(request()->except('page'));
