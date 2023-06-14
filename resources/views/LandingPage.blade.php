@@ -48,7 +48,37 @@
             @endforeach
         </div>
     </div>
-</div>
+
+    <div class="container">
+        <div class="container-fluid mt-5">
+            <div class="row" style="margin-top: 50px; margin-bottom: 30px">
+                <div class="col-12 d-flex content-between align-items-center">
+                    <h3 style="margin: 0; display: inline-block;">Upcoming Events</h3>
+                    <a href="/UpcomingEvent" style="opacity: 50%; margin: 10px; display: inline-block;">see all</a>
+                </div>
+                @foreach ($akunevents as $info_akunevent)
+                    @if ($eventCounter >= 4)
+                    @break
+                @endif
+                <div class="col-md-3" style="margin-bottom: 10px; margin-top: 13px">
+                    <div class="card"
+                        style="width: 200px;min-height: 25rem; border-radius: 15px; box-shadow: 2px 2px 2px darkgray;">
+                        <img class="card-img-top" src="img/Portrait.png" alt="Card image" style="width: 100%;">
+                        <div class="card-body" style="margin-bottom: 20px; display: flex; flex-direction: column">
+                            <h4 class="card-title" style="text-align: center;">{{ $info_akunevent->eventName }}</h4>
+                            <p class="card-text"style="text-align: center;">{{ $info_akunevent->eventLocation }}</p>
+                            <a href="#" class="btn btn-danger"
+                                style="border-radius: 15px; height: 38.5px; margin-top: auto">See Profile</a>
+                        </div>
+                    </div>
+                </div>
+                @php
+                    $eventCounter++;
+                @endphp
+            @endforeach
+        </div>
+    </div>
+
 
 
 
