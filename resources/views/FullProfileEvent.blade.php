@@ -37,6 +37,8 @@
                     </div>
 
                 </div>
+                @foreach ($events as $info_akun)
+
                 <div class="col-lg-8">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -45,7 +47,7 @@
                                     <p class="mb-0">Event Type</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Johnatan Smith</p>
+                                    <p class="text-muted mb-0">{{ $info_akun->eventType }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -54,7 +56,7 @@
                                     <p class="mb-0">Event Name</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">21</p>
+                                    <p class="text-muted mb-0">{{ $info_akun->eventName }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -63,7 +65,7 @@
                                     <p class="mb-0">Location</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Indonesian, English</p>
+                                    <p class="text-muted mb-0">{{ $info_akun->eventLocation }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -72,7 +74,7 @@
                                     <p class="mb-0">Number of MC</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Musical Event, Wedding</p>
+                                    <p class="text-muted mb-0">{{ $info_akun->numberOfMC }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -81,7 +83,7 @@
                                     <p class="mb-0">Event Description</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Event A, Event B</p>
+                                    <p class="text-muted mb-0">{{ $info_akun->eventDescription }}</p>
                                 </div>
                             </div>
 
@@ -89,6 +91,7 @@
                     </div>
 
                 </div>
+                @endforeach
             </div>
     </section>
 

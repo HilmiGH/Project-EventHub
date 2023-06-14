@@ -67,7 +67,7 @@
                         <div class="card-body" style="margin-bottom: 20px; display: flex; flex-direction: column">
                             <h4 class="card-title" style="text-align: center;">{{ $info_akunevent->eventName }}</h4>
                             <p class="card-text"style="text-align: center;">{{ $info_akunevent->eventLocation }}</p>
-                            <a href="#" class="btn btn-danger"
+                            <a href="{{ route('event.show', $info_akunevent->id) }}" class="btn btn-danger"
                                 style="border-radius: 15px; height: 38.5px; margin-top: auto">See Profile</a>
                         </div>
                     </div>
@@ -77,6 +77,8 @@
                 @endphp
             @endforeach
         </div>
+    </div>
+</div>
     </div>
 
 
