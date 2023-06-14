@@ -50,4 +50,8 @@ Route::get('/landingpage/detailedinfo/{id}', 'App\Http\Controllers\ProfileContro
 Route::get('/landingpage/morerating', 'App\Http\Controllers\LandingPageController@moreRating');
 Route::get('/landingpage/addrating', 'App\Http\Controllers\LandingPageController@addRating');
 
+Route::get('/FullProfileEvent/{id}', 'App\Http\Controllers\FullProfileEventController@showEventProfile')->name('event.show');;
+Route::get('/EditEvent', 'App\Http\Controllers\EditEventController@editevent');
+Route::post('/EditEvent/update', 'App\Http\Controllers\EditEventController@update');
+
 require __DIR__.'/auth.php';
