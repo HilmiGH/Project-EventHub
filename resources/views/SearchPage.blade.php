@@ -115,7 +115,9 @@
                         {{-- <h4 class="card-title">{{ $info_akun->mcUsername }}</h4>
                         <p class="card-text">{{ $info_akun->mcCity }}</p>
                         <p class="card-text">Rp {{ $info_akun->mcPriceMin .' - '. $info_akun ->mcPriceMax}}</p> --}}
-                        <a href="{{ route('profile.show', $info_akun->id) }}" class="btn btn-danger" style="border-radius: 15px; height: 38.5px"> {{ $info_akun->col6 }} </a>
+                        <a href="{{ $info_akun->col7 == 2 ? route('profile.show', $info_akun->id) : route('event.show', $info_akun->id) }}" class="btn btn-danger" style="border-radius: 15px; height: 38.5px">
+                            {{ $info_akun->col6 }}
+                        </a>
                     </div>
                 </div>
             </div>
