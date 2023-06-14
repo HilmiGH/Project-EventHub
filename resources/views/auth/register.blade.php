@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 7rem">
         <div class="input">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
