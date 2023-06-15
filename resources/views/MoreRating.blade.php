@@ -33,7 +33,6 @@
                             <span class="float-right"><i class="text-warning fa fa-star"></i></span>
                             <span class="float-right"><i class="text-warning fa fa-star"></i></span>
                             <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-
                         </p>
                         <div class="clearfix"></div>
                         <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
@@ -59,7 +58,6 @@
                             <span class="float-right"><i class="text-warning fa fa-star"></i></span>
                             <span class="float-right"><i class="text-warning fa fa-star"></i></span>
                             <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-
                         </p>
                         <div class="clearfix"></div>
                         <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,

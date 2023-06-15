@@ -16,7 +16,7 @@
                     <div class="col-lg-4">
                         <div class="card mb-4">
                             <div class="card-body text-center">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                <img src="https://e7.pngegg.com/pngimages/84/615/png-clipart-graphy-portrait-beard-man-24-2-1-miscellaneous-face.png"
                                     alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 <h5 class="my-3">{{ $info_akun->mcUsername }}</h5>
                                 <p class="text-muted mb-1" style="margin-top: -0.3cm">{{ $info_akun->mcCity }}</p>
