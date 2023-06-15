@@ -63,7 +63,7 @@
                 <div class="col-md-3" style="margin-bottom: 10px; margin-top: 13px">
                     <div class="card"
                         style="width: 200px;min-height: 25rem; border-radius: 15px; box-shadow: 2px 2px 2px darkgray;">
-                        <img class="card-img-top" src="img/Portrait.png" alt="Card image" style="width: 100%;">
+                        <img class="card-img-top" src="img/EventPhoto.jpg" alt="Card image" style="width: 100%;">
                         <div class="card-body" style="margin-bottom: 20px; display: flex; flex-direction: column">
                             <h4 class="card-title" style="text-align: center;">{{ $info_akunevent->eventName }}</h4>
                             <p class="card-text"style="text-align: center;">{{ $info_akunevent->eventLocation }}</p>
