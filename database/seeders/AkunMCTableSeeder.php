@@ -58,7 +58,7 @@ class AkunMCTableSeeder extends Seeder
             'jenisAccountID' => '2',
             'mcDOB' => $faker->dateTimeBetween($startDate = '-30 years', $endDate = '-20 years', $timezone = null),
             'mcLanguage' => $faker->randomElement($languages),
-            'mcPriceMin' => $faker->numberBetween($min = 50000, $max = 999999),
+            'mcPriceMin' => $faker->numberBetween($min = 700000, $max = 999999),
             'mcPriceMax' => $faker->numberBetween($min = 999999, $max = 10000000),
             'mcCity' => $city,
             'mcSpecialization' => $faker->randomElement($specializations),
