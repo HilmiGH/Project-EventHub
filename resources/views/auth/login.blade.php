@@ -23,7 +23,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 7rem">
         <div class="card">
             <h3
                 style="font-size: larger;font-family: serif;font-weight: bold; text-align: center;margin-top: 50px;margin-bottom: 0px;">
