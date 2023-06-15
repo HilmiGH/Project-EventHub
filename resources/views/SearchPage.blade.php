@@ -101,6 +101,11 @@
             </div>
         </div>
         <div class="row"  style="margin-top:150px; margin-bottom:30px">
+            @if ($akunmc->isEmpty())
+            <div class="" style="">
+                <p class="" style="font-size: 2rem">No MC / Event found...</p>
+            </div>
+            @endif
             @foreach ($akunmc as $info_akun)
             @if ($akunCounter>=20)
                 @break
