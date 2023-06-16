@@ -30,7 +30,7 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                            <img src={{ asset('img/EventPhoto.jpg') }}
                                 alt="avatar" class="img-fluid" style=";">
 
                         </div>
