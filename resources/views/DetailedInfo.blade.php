@@ -9,14 +9,14 @@
     <!------ Include the above in your HEAD tag ---------->
 
 
-    <section style="background-color: #eee;">
+    <section>
         <div class="container py-5" style="margin-top: 1.5cm">
             @foreach ($akunmc as $info_akun)
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card mb-4">
+                        <div class="card mb-4" style="border: 0.5px solid rgb(152, 140, 140)">
                             <div class="card-body text-center">
-                                <img src="https://e7.pngegg.com/pngimages/84/615/png-clipart-graphy-portrait-beard-man-24-2-1-miscellaneous-face.png"
+                                <img src="{{asset('img/Portrait.png')}}"
                                     alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 <h5 class="my-3">{{ $info_akun->mcUsername }}</h5>
                                 <p class="text-muted mb-1" style="margin-top: -0.3cm">{{ $info_akun->mcCity }}</p>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="col-lg-8">
-                        <div class="card mb-4">
+                        <div class="card mb-4" style="border: 0.5px solid rgb(152, 140, 140)">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-3">
