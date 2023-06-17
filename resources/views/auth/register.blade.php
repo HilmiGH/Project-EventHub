@@ -10,20 +10,20 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 7rem">
         <div class="input">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
                 <!-- Name -->
-                <div>
+                <div class="mt-4">
                     <label class="custom-label" for="name">Name</label>
                     <x-text-input id="name" class="form-control custom-input" type="text" name="name"
-                    :value="old('name')" required autofocus autocomplete="name" />
+                    :value="old('name')" required autofocus autocomplete="name" placeholder="Enter your name here"/>
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
 
-                <div class="form-group">
+                <div class="mt-4">
                     <label class="custom-label" for="email">Email</label>
                     <x-text-input id="email" class="form-control custom-input" type="email" name="email"
                         :value="old('email')" required autocomplete="username" placeholder="Enter your email in here" />
