@@ -14,23 +14,13 @@
     <!------ Include the above in your HEAD tag ---------->
 
     <section style="">
-        <div class="container py-5" style="margin-top: 1.5cm">
-            <div class="row">
-                <div class="col">
-                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="/landingpage">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Event Profile</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+        <div class="container py-5" style="margin-top: 2cm">
 
-            <div class="row">
+            <div class="row" style="margin-top: 0.5cm">
                 <div class="col-lg-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4" style="border: 0.5px solid rgb(152, 140, 140)">
                         <div class="card-body text-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                            <img src={{ asset('img/EventPhoto.jpg') }}
                                 alt="avatar" class="img-fluid" style=";">
 
                         </div>
@@ -40,7 +30,7 @@
                 @foreach ($events as $info_akun)
 
                 <div class="col-lg-8">
-                    <div class="card mb-4">
+                    <div class="card mb-4" style="border: 0.5px solid rgb(152, 140, 140)">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">

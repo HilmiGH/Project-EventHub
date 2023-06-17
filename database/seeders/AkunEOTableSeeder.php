@@ -16,7 +16,7 @@ class AkunEOTableSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
 
-        for ($i=1; $i <= 20; $i++) { 
+        for ($i=1; $i <= 20; $i++) {
             DB::table('akuneo')->insert([
                 'eoID' => $faker->unique()->numberBetween($min = 1, $max = 999999),
                 'eoName' => $faker->unique()->name,

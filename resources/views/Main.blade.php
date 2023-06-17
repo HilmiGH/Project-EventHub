@@ -37,7 +37,7 @@
             border-radius: 30px;
         }
 
-        .search-form:hover{
+        .search-form:hover {
             transform: translateY(-2px);
         }
 
@@ -54,7 +54,7 @@
         }
 
         .dropdown {
-        margin-right: 30px;
+            margin-right: 30px;
         }
     </style>
 </head>
@@ -62,7 +62,8 @@
 <body style="overflow-x: hidden">
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(255, 0, 51);">
-        <img src={{ asset('img/Header_EventHub_Logo.png') }} alt="Logo" style="height: 20px; margin-left: 30px">
+        <a href="/landingpage"><img src={{ asset('img/Header_EventHub_Logo.png') }} alt="Logo"
+                style="height: 20px; margin-left: 30px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -70,8 +71,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <form class="form-inline mx-auto" action="{{ url('search-results/search') }}"
                 style="margin-top: 0.3cm; margin-bottom: 0.3cm;">
-                <input class="form-control mr-sm-2 search-form" name="search" value="{{ old('search') }}" aria-label="Search"
-                    placeholder="Find event or mc here" aria-label="Search" style="width: 15cm">
+                <input class="form-control mr-sm-2 search-form" name="search" value="{{ old('search') }}"
+                    aria-label="Search" placeholder="Find event or mc here" aria-label="Search" style="width: 15cm">
                 <button class="search-link" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="dropdown">
@@ -81,11 +82,11 @@
                         style="width: 40px; height: 40px;">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <div class="dropdown-item"><a class="dropdown-link" href="/landingpage">Home</a></div>
                     <div class="dropdown-item"><a class="dropdown-link" href="/myprofile/">My Profile</a></div>
                     <div class="dropdown-item"><a class="dropdown-link" href="/profile/">Edit Profile</a></div>
                     <div id="logoutDropdown" class="dropdown-item">
-                        <a class="dropdown-link" href="#" data-toggle="modal" data-target="#logoutModal">Log Out</a>
+                        <a class="dropdown-link" href="#" data-toggle="modal" data-target="#logoutModal">Log
+                            Out</a>
                     </div>
                 </div>
 
@@ -111,28 +112,28 @@
     </footer>
 
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="logoutModalLabel">Logout Confirmation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to logout?</p>
-            </div>
-            <div class="modal-footer">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Yes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                </form>
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutModalLabel">Logout Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to logout?</p>
+                </div>
+                <div class="modal-footer">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </body>
 

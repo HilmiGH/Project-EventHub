@@ -28,7 +28,7 @@ class TopMCController extends Controller
 
         //$search = $request->input('search');
         $akunMCQuery = DB::table('akunMC')
-            ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID AS col7', 'ratingMCID AS col8')
+            ->select('id AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID AS col7', 'ratingMCID AS col8')
             ->orderByDesc('ratingMCID');
 
         $topmcresults = $akunMCQuery->paginate(16);
@@ -68,7 +68,7 @@ class TopMCController extends Controller
         $minPrice = $request->input('min_price');
 
         $akunMCQuery = DB::table('akunMC')
-        ->select('mcID AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID')
+        ->select('id AS id', 'mcUsername AS col1', 'mcFullName AS col2', 'mcCity AS col3', DB::raw("CONCAT('Rp', mcPriceMin, ' -') AS col4"), 'mcPriceMax as col5', DB::raw("'' AS col6"), 'jenisAccountID')
         ->where(function ($query) use ($search) {
             $query->where('mcUsername', 'LIKE', "%{$search}%")
                 ->orWhere('mcFullName', 'LIKE', "%{$search}%");
