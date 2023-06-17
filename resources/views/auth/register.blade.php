@@ -1,20 +1,21 @@
 <x-guest-layout>
+
     <style>
         .card {
             border: 3px solid rgb(0, 0, 0);
+            margin-bottom: 2cm;
         }
     </style>
 
-    <div class="container" style="margin-top: 1cm">
-        <div class="card">
+<div class="container" style="margin-top: 2.5cm">
+    <div class="card">
         <div class="row">
-            <div class="col-12 text-center mt-5 pt-5">
+            <div class="col-12 text-center mt-5">
                 <h3 style="font-size: larger;font-family: serif;font-weight: bold;">Sign up to Event Hub as</h3>
                 <h3 style="font-size: medium;font-family: serif;text-align: center;color:gray;">Enter your username and
                     password below</h3>
             </div>
         </div>
-    </div>
 
     <div class="container" style="margin-bottom: 7rem">
         <div class="input">
@@ -22,14 +23,14 @@
                 @csrf
 
                 <!-- Name -->
-                <div class="mt-4">
+                <div class="mt-2">
                     <label class="custom-label" for="name">Name</label>
                     <x-text-input id="name" class="form-control custom-input" type="text" name="name"
                     :value="old('name')" required autofocus autocomplete="name" placeholder="Enter your name here"/>
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-2">
                     <label class="custom-label" for="email">Email</label>
                     <x-text-input id="email" class="form-control custom-input" type="email" name="email"
                         :value="old('email')" required autocomplete="username" placeholder="Enter your email in here" />
@@ -37,7 +38,7 @@
                 </div>
 
                 <!-- Password -->
-                <div class="mt-4">
+                <div class="mt-2">
                     <label class="custom-label" for="password">Password</label>
                     <x-text-input id="password" class="form-control custom-input" type="password" name="password"
                         required autocomplete="new-password" placeholder="Enter your correct password in here" />
@@ -45,7 +46,7 @@
                 </div>
 
                 <!-- Confirm Password -->
-                <div class="mt-4">
+                <div class="mt-2">
                     <label class="custom-label" for="password_confirmation">Password Confirmation</label>
                     <x-text-input id="password_confirmation" class="form-control custom-input" type="password"
                         name="password_confirmation" required autocomplete="new-password"
@@ -58,12 +59,12 @@
                     <p class="custom-text">
                         Already have an account? <a href="/login">Login</a>.
                     </p>
+                </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    </div>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     {{-- <form method="POST" action="{{ route('register') }}">
