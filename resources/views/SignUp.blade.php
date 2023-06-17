@@ -4,7 +4,10 @@
   <title>Centered Text</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-
+.card {
+      border-width: 3px;
+      border-color: black;
+}
     .btn-container {
   text-align: center;
 }
@@ -53,13 +56,13 @@
 <body>
 
   <div class="container">
+    <div class="card">
     <div class="row">
       <div class="col-12 text-center mt-5 pt-5">
-        <h3 style="font-size: larger;font-family: serif;font-weight: bold;">Sign up to Event Hub as</h3>
+        <h3 style="font-size: larger;font-family: serif;font-weight: bold;">to Event Hub as</h3>
         <h3 style="font-size: medium;font-family: serif;text-align: center;color:gray;">Enter your username and password below</h3>
       </div>
     </div>
-  </div>
   <div class="btn-container">
  <form action="/action_page.php">
     <div class="form-check-inline">
@@ -79,8 +82,6 @@
     </div>
     </form>
   </div>
-
-
   <div class="container">
     <div class="input">
         <form>
@@ -98,6 +99,8 @@
           </p>
       </div>
     </div>
+  </div>
+  </div>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

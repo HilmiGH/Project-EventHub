@@ -6,8 +6,6 @@
     .card {
       border-width: 3px;
       border-color: black;
-
-
     }
     .custom-input {
       border: 2px solid black;

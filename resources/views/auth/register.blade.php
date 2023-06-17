@@ -1,6 +1,12 @@
 <x-guest-layout>
+    <style>
+        .card {
+            border: 3px solid rgb(0, 0, 0);
+        }
+    </style>
 
     <div class="container" style="margin-top: 1cm">
+        <div class="card">
         <div class="row">
             <div class="col-12 text-center mt-5 pt-5">
                 <h3 style="font-size: larger;font-family: serif;font-weight: bold;">Sign up to Event Hub as</h3>
@@ -8,14 +14,13 @@
                     password below</h3>
             </div>
         </div>
-    </div>
-
     <div class="container">
         <div class="input">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
                 <!-- Name -->
+                <div class="card-body">
                 <div>
                     <label class="custom-label" for="name">Name</label>
                     <x-text-input id="name" class="form-control custom-input" type="text" name="name"
@@ -53,10 +58,11 @@
                         Already have an account? <a href="/login">Login</a>.
                     </p>
                 </div>
-
+            </div>
         </div>
     </div>
-
+</div>
+    </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     {{-- <form method="POST" action="{{ route('register') }}">
